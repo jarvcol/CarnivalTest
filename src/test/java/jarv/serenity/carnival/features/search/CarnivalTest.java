@@ -36,8 +36,12 @@ public class CarnivalTest {
 
         givenThat(jarv).wasAbleTo(openTheApplication);
 
-        when(jarv).attemptsTo(DoesABadLogin.badLoginAttempt("afaadf@gafg.com","25252"));
+        when(jarv).attemptsTo(DoesABadLogin.badLoginAttempt("jarv1111@hotmail.com","JJJJJJ"));
 
         then(jarv).should(seeThat(LoginQuestions.IsLoginFailed(),is(true)));
+
+        then(jarv).should(seeThat(LoginQuestions.IsLoginModalOpen(),is(true)));
+
+        then(jarv).should(seeThat(LoginQuestions.IsUserLoggedIn(),is(false)));
     }
 }
