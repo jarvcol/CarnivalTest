@@ -5,7 +5,6 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Open;
 import net.thucydides.core.annotations.Step;
-import jarv.serenity.carnival.ui.GoogleSearchPage;
 
 public class OpenBrowserOnHomePage implements Task {
 

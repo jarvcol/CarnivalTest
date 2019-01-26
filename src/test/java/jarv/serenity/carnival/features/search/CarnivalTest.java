@@ -1,7 +1,7 @@
 package jarv.serenity.carnival.features.search;
 
 import jarv.serenity.carnival.questions.builder.LoginQuestions;
-import jarv.serenity.carnival.tasks.OpenLoginModal;
+import jarv.serenity.carnival.tasks.DoesABadLogin;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
@@ -32,12 +32,12 @@ public class CarnivalTest {
     }
 
     @Test
-    public void openning_the_login_modal() {
+    public void invalid_login_attempt() {
 
         givenThat(jarv).wasAbleTo(openTheApplication);
 
-        when(jarv).attemptsTo(OpenLoginModal.openLoginModal());
+        when(jarv).attemptsTo(DoesABadLogin.badLoginAttempt("afaadf@gafg.com","25252"));
 
-        then(jarv).should(seeThat(LoginQuestions.IsLoginModalOpen(),is(true)));
+        then(jarv).should(seeThat(LoginQuestions.IsLoginFailed(),is(true)));
     }
 }
