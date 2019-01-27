@@ -18,7 +18,7 @@ public class OpenLoginModal implements Task {
     @Step("Opens the login modal")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Click.on(CarnivalHomePageHeader.LOGIN_Header_LINK)
+                Click.on(CarnivalHomePageHeader.LOGIN_HEADER_LINK)
         );
     }
 
