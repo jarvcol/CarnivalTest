@@ -2,6 +2,7 @@ package jarv.serenity.carnival.features.search.search;
 
 import jarv.serenity.carnival.questions.builder.LoginQuestions;
 import jarv.serenity.carnival.tasks.DoesABadLogin;
+import jarv.serenity.carnival.tasks.OpenBrowserOnCruiceSearch;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
@@ -16,7 +17,7 @@ import static net.serenitybdd.screenplay.GivenWhenThen.*;
 import static org.hamcrest.Matchers.is;
 
 @RunWith(SerenityRunner.class)
-public class CruiceSearchTest {
+public class CruiseSearchTest {
 
     Actor jarv = Actor.named("Jorge");
 
@@ -24,7 +25,7 @@ public class CruiceSearchTest {
     public WebDriver hisBrowser;
 
     @Steps
-    OpenBrowserOnHomePage openTheApplication;
+    OpenBrowserOnCruiceSearch openTheApplication;
 
     @Before
     public void jarvCanBrowseTheWeb() {
