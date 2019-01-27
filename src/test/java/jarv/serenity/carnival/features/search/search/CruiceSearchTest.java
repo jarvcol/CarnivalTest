@@ -1,4 +1,4 @@
-package jarv.serenity.carnival.features.search;
+package jarv.serenity.carnival.features.search.search;
 
 import jarv.serenity.carnival.questions.builder.LoginQuestions;
 import jarv.serenity.carnival.tasks.DoesABadLogin;
@@ -16,7 +16,7 @@ import static net.serenitybdd.screenplay.GivenWhenThen.*;
 import static org.hamcrest.Matchers.is;
 
 @RunWith(SerenityRunner.class)
-public class CarnivalTest {
+public class CruiceSearchTest {
 
     Actor jarv = Actor.named("Jorge");
 
@@ -32,7 +32,7 @@ public class CarnivalTest {
     }
 
     @Test
-    public void invalid_login_attempt() {
+    public void cruice_search_by_ship_duration_passengers() {
 
         givenThat(jarv).wasAbleTo(openTheApplication);
 
