@@ -1,5 +1,7 @@
 package jarv.serenity.carnival.features.search.search;
 
+import jarv.serenity.carnival.questions.builder.LoginQuestions;
+import jarv.serenity.carnival.questions.builder.SearchQuestions;
 import jarv.serenity.carnival.tasks.*;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
@@ -11,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import static net.serenitybdd.screenplay.GivenWhenThen.*;
+import static org.hamcrest.Matchers.is;
 
 @RunWith(SerenityRunner.class)
 public class CruiseSearchTest {
@@ -39,5 +42,7 @@ public class CruiseSearchTest {
         when(jarv).attemptsTo(SelectsShipByName.selectShipFromOptions("Carnival Glory "));
         when(jarv).attemptsTo(OpensTravelersNumberFilter.clicksOnTravelersNumberFilter());
         when(jarv).attemptsTo(SetNumberOfTravelers.setsTravelers(5));
+        then(jarv).should(seeThat(SearchQuestions.IsResultsBetweenDurationRange("2-5"),is(true)));
+        then(jarv).should(seeThat(SearchQuestions.AreResultsRelatedToShips("Carnival Glory "),is(true)));
     }
 }
