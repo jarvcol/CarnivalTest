@@ -33,6 +33,8 @@ public class CruiseSearchTest {
 
         givenThat(jarv).wasAbleTo(openTheApplication);
 
+        when(jarv).attemptsTo(OpensCruiseDurationFilter.clicksOnCruiseDurationFilter());
+        when(jarv).attemptsTo(SelectsCruiseDuration.selectsCruiseDuration("2-5"));
         when(jarv).attemptsTo(OpensShipListFilter.clicksOnShipListFilter());
         when(jarv).attemptsTo(SelectsShipByName.selectShipFromOptions("Carnival Glory "));
         when(jarv).attemptsTo(OpensTravelersNumberFilter.clicksOnTravelersNumberFilter());
