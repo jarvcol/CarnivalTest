@@ -16,11 +16,15 @@ public class IsResultsBetweenDurationRange implements Question<Boolean> {
     @Override
     public Boolean answeredBy(Actor actor) {
         int dayRange = Integer.parseInt(CruiseSearchResults.CRUISE_RESULTS_DURATION.resolveFor(actor).getText());
-        int lowerBoundary=Integer.parseInt(days.split("-")[0]) , upperBoundary=Integer.parseInt(days.split("-")[1]);
-        if(lowerBoundary <= dayRange && upperBoundary >= dayRange)
-            return true;
-        else
-            return false;
+        if(!days.equals("10+")){
+            int lowerBoundary=Integer.parseInt(days.split("-")[0]) , upperBoundary=Integer.parseInt(days.split("-")[1]);
+            if(lowerBoundary <= dayRange && upperBoundary >= dayRange)
+                return true;
+            else
+                return false;
+        }else{
+            return (dayRange>=10) ? true : false;
+        }
     }
 
     public static IsResultsBetweenDurationRange isResultsBetweenDates(String days) {
