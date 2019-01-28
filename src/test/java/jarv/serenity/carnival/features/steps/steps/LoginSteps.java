@@ -26,12 +26,12 @@ public class LoginSteps {
         theActorCalled(actor).wasAbleTo(OpenBrowserOnHomePage.opensPortal());
     }
 
-    @When("^he attemps an incorrect login$")
+    @When("^he attempts an incorrect login$")
     public void he_attempts_invalid_login() {
         theActorInTheSpotlight().attemptsTo(DoesABadLogin.badLoginAttempt("jarv1111@hotmail.com","JJJJJJ"));
     }
 
-    @Then("^he must see that login was not succesful$")
+    @Then("^he must see that login was not successful")
     public void he_should_see_that_login_was_not_succesful()  {
         theActorInTheSpotlight().should(
                 seeThat(LoginQuestions.IsLoginFailed(),is(true)),
