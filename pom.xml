@@ -12,8 +12,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>1.8.3</serenity.version>
+        <serenity.version>1.9.0</serenity.version>
+        <serenity.maven.version>1.5.9</serenity.maven.version>
+        <serenity.cucumber.version>1.9.1</serenity.cucumber.version>
+        <parallel.tests>2</parallel.tests>
         <webdriver.driver>firefox</webdriver.driver>
+        <serenity.test.root></serenity.test.root>
+        <tags></tags>
     </properties>
 
     <repositories>
@@ -80,6 +85,18 @@
             <scope>test</scope>
             <version>3.8.0</version>
         </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-cucumber</artifactId>
+            <version>${serenity.cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-rest-assured</artifactId>
+            <version>${serenity.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -96,10 +113,13 @@
                 <version>2.19.1</version>
                 <configuration>
                     <includes>
+                        <!--
                         <include>**/*Test.java</include>
                         <include>**/Test*.java</include>
                         <include>**/When*.java</include>
                         <include>**/*Story.java</include>
+                        -->
+                        <include>**/features/**/*.java</include>
                     </includes>
                     <argLine>-Xmx512m</argLine>
                     <systemPropertyVariables>
@@ -127,7 +147,17 @@
             <plugin>
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>
-                <version>${serenity.version}</version>
+                <version>${serenity.maven.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.serenity-bdd</groupId>
+                        <artifactId>serenity-core</artifactId>
+                        <version>${serenity.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <tags>${tags}</tags>
+                </configuration>
                 <executions>
                     <execution>
                         <id>serenity-reports</id>
