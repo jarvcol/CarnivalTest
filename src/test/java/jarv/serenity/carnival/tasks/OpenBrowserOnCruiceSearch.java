@@ -1,19 +1,19 @@
 package jarv.serenity.carnival.tasks;
 
-import jarv.serenity.carnival.ui.CarnivalHomePage;
+import jarv.serenity.carnival.ui.CruiseSearchPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Open;
 import net.thucydides.core.annotations.Step;
 
-public class OpenBrowserOnHomePage implements Task {
+public class OpenBrowserOnCruiceSearch implements Task {
 
-    CarnivalHomePage carnivalHomePage;
+    CruiseSearchPage cruiceSearchPage;
 
-    @Step("Open the the Carnival portal")
+    @Step("Open the cruise search page")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Open.browserOn().the(carnivalHomePage)
+                Open.browserOn().the(cruiceSearchPage)
         );
     }
 }
