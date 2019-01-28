@@ -10,7 +10,7 @@ public class OpenBrowserOnCruiceSearch implements Task {
 
     CruiseSearchPage cruiceSearchPage;
 
-    @Step("Open the cruise search page")
+    @Step("Open the cruise steps page")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Open.browserOn().the(cruiceSearchPage)

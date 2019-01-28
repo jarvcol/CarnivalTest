@@ -6,6 +6,8 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Open;
 import net.thucydides.core.annotations.Step;
 
+import static net.serenitybdd.screenplay.Tasks.instrumented;
+
 public class OpenBrowserOnHomePage implements Task {
 
     CarnivalHomePage carnivalHomePage;
@@ -15,5 +17,9 @@ public class OpenBrowserOnHomePage implements Task {
         actor.attemptsTo(
                 Open.browserOn().the(carnivalHomePage)
         );
+    }
+
+    public static OpenBrowserOnHomePage opensPortal() {
+        return instrumented(OpenBrowserOnHomePage.class);
     }
 }
