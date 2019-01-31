@@ -13,6 +13,7 @@ import jarv.serenity.carnival.tasks.DoesABadLogin;
 import jarv.serenity.carnival.tasks.OpenBrowserOnHomePage;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 
 public class LoginSteps {
 
