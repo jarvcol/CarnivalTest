@@ -1,6 +1,6 @@
 package jarv.serenity.carnival.features.steps.steps;
 
-import jarv.serenity.carnival.abilities.CallAnApi;
+import net.serenitybdd.screenplay.rest.abiities.CallAnApi;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -17,12 +17,12 @@ public class RecoverUserNameSteps {
 
     @Before
     public void set_the_test(){
-        jorge = Actor.named("Jorge the supervisor").whoCan(CallAnApi.at(theRestApiBaseUrl));
+        jorge = Actor.named("Jorge, learning serenity rest").whoCan(CallAnApi.at(theRestApiBaseUrl));
     }
 
     @Given("^Jorge is not a registered user$")
     public void jorge_is_not_registered() throws Throwable {
-        //TODO: Investigate what sould be done here???
+        //TODO: Investigate what should be done here???
     }
 
     @Given("^he wants to recover his password$")
@@ -39,7 +39,7 @@ public class RecoverUserNameSteps {
         jorge.attemptsTo(
                 Post.to("/Accounts/Password/Forgot")
                         .with(request -> request.header("Content-Type", "application/json")
-                                .body("{\"username\": \""+userName)
+                                .body("{\"username\": \""+userName+"\"}")
                         )
         );
     }
