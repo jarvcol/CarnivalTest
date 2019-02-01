@@ -1,13 +1,11 @@
 package jarv.serenity.carnival.features.steps.steps;
 
-import static net.serenitybdd.rest.SerenityRest.then;
 import jarv.serenity.carnival.abilities.CallAnApi;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import static org.hamcrest.Matchers.containsString;
 import net.serenitybdd.screenplay.Actor;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 
@@ -36,18 +34,18 @@ public class RecoverUserNameSteps {
     }
 
     @When("^he sends the required information to recover his password$")
-    public void he_looks_the_available_vehicles() throws Throwable {
+    public void he_attemps_to_recover_password() throws Throwable {
         //TODO: Create Object Model for Request Body and send it. Anyway example is way too simple to do that and I am running out of time Julian.
         jorge.attemptsTo(
                 Post.to("/Accounts/Password/Forgot")
                         .with(request -> request.header("Content-Type", "application/json")
-                                .body("{\"username\": \""+userName+",\"lastName\": \"Smith\"}")
+                                .body("{\"username\": \""+userName)
                         )
         );
     }
 
     @Then("^he should be informed that operation could not be done$")
-    public void he_must_see_which_vehicles_are_available() throws Throwable {
+    public void he_must_see_a_failed_response() throws Throwable {
         jorge.should(
                 seeThatResponse( "Recover for password was denied",
                         response -> response.statusCode(400)
