@@ -1,12 +1,13 @@
 package jarv.serenity.carnival.features.steps.steps;
 
-import net.serenitybdd.screenplay.rest.abiities.CallAnApi;
+import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.serenitybdd.screenplay.Actor;
+import static org.hamcrest.Matchers.equalTo;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 
 public class RecoverUserNameSteps {
@@ -39,7 +40,7 @@ public class RecoverUserNameSteps {
         jorge.attemptsTo(
                 Post.to("/Accounts/Password/Forgot")
                         .with(request -> request.header("Content-Type", "application/json")
-                                .body("{\"username\": \""+userName+"\"}")
+                                .body("{\"username\": \"joe\"}")
                         )
         );
     }

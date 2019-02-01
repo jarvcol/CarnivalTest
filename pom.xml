@@ -17,7 +17,8 @@
         <serenity.cucumber.version>1.9.1</serenity.cucumber.version>
         <parallel.tests>2</parallel.tests>
         <webdriver.driver>firefox</webdriver.driver>
-        <serenity.rest>1.9.27</serenity.rest>
+        <serenity.rest.assured>2.0.34</serenity.rest.assured>
+        <serenity.rest.screenplay>2.0.34</serenity.rest.screenplay>
         <serenity.test.root></serenity.test.root>
         <tags></tags>
     </properties>
@@ -95,13 +96,13 @@
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-rest-assured</artifactId>
-            <version>${serenity.rest}</version>
+            <version>${serenity.rest.assured}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-screenplay-rest</artifactId>
-            <version>${serenity.rest}</version>
+            <version>${serenity.rest.screenplay}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
