@@ -9,6 +9,7 @@ public class DataBaseDriver {
     private final String url = "jdbc:postgresql://127.0.0.2:5432/jorge";
     private final String user = "postgres";
     private final String password = "jarv";
+    private Connection conn;
 
     /**
      * Connect to the PostgreSQL database
@@ -16,7 +17,7 @@ public class DataBaseDriver {
      * @return a DataBaseDriver object
      */
     public Connection connect() {
-        Connection conn = null;
+        conn = null;
         try {
             conn = DriverManager.getConnection(url, user, password);
             System.out.println("Connected to the PostgreSQL server successfully.");
@@ -26,8 +27,27 @@ public class DataBaseDriver {
         return conn;
     }
 
-    public static void main(String[] args) {
+    public void disconect(){
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public Connection getConn() {
+        try{
+            if (conn.isClosed())
+                connect();
+            return conn;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    /*public static void main(String[] args) {
         DataBaseDriver app = new DataBaseDriver();
         app.connect();
-    }
+    }*/
 }
