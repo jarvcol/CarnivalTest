@@ -10,7 +10,7 @@ import net.serenitybdd.screenplay.Actor;
 import static org.hamcrest.Matchers.equalTo;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 
-public class RecoverUserNameSteps {
+public class RecoverPasswordSteps {
 
     private String theRestApiBaseUrl = "https://www.carnival.com/ProfileManagement/api/v1.0";
     private Actor jorge;

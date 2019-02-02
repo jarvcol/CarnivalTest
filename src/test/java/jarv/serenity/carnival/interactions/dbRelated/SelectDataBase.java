@@ -14,7 +14,7 @@ public class SelectDataBase implements Interaction {
     private final DataBaseDriver dbDriver;
     private ResultSet rs=null;
 
-    public SelectDataBase(DataBaseDriver dbDriver, Users user) {
+    public SelectDataBase(DataBaseDriver dbDriver) {
         this.dbDriver = dbDriver;
     }
 
