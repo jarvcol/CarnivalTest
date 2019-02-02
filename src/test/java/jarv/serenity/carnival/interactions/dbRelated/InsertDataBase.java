@@ -1,4 +1,4 @@
-package jarv.serenity.carnival.tasks.dbRelated;
+package jarv.serenity.carnival.interactions.dbRelated;
 
 import jarv.serenity.carnival.dataBaseConection.DataBaseDriver;
 import jarv.serenity.carnival.model.Users;
@@ -10,23 +10,24 @@ import java.sql.PreparedStatement;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class DeleteDataBase implements Interaction {
+public class InsertDataBase implements Interaction {
 
     private final DataBaseDriver dbDriver;
     private final Users user;
 
-    public DeleteDataBase(DataBaseDriver dbDriver, Users user) {
+    public InsertDataBase(DataBaseDriver dbDriver, Users user) {
         this.dbDriver = dbDriver;
         this.user = user;
     }
 
     @Override
-    @Step("Deleting from DB")
+    @Step("Inserting from DB")
     public <T extends Actor> void performAs(T actor) {
         try
         {
-            PreparedStatement st = dbDriver.getConn().prepareStatement("DELETE FROM Table WHERE name = ?");
+            PreparedStatement st = dbDriver.getConn().prepareStatement("INSERT INTO users(usercode,username) VALUES(?,?)");
             st.setInt(1,user.getUserCode());
+            st.setString(2,user.getUserName());
             st.executeUpdate();
             dbDriver.disconect();
         }
@@ -37,8 +38,7 @@ public class DeleteDataBase implements Interaction {
         }
     }
 
-    public static Interaction delete(DataBaseDriver dbDriver, Users user) {
-        return instrumented(DeleteDataBase.class, dbDriver, user);
+    public static Interaction insert(DataBaseDriver dbDriver, Users user) {
+        return instrumented(InsertDataBase.class, dbDriver, user);
     }
 }
-

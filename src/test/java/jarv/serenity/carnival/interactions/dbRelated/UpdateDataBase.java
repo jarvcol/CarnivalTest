@@ -1,4 +1,4 @@
-package jarv.serenity.carnival.tasks.dbRelated;
+package jarv.serenity.carnival.interactions.dbRelated;
 
 import jarv.serenity.carnival.dataBaseConection.DataBaseDriver;
 import jarv.serenity.carnival.model.Users;
@@ -14,10 +14,12 @@ public class UpdateDataBase implements Interaction {
 
     private final DataBaseDriver dbDriver;
     private final Users user;
+    private final int userKey;
 
-    public UpdateDataBase(DataBaseDriver dbDriver, Users user) {
+    public UpdateDataBase(DataBaseDriver dbDriver, Users user, int userKey) {
         this.dbDriver = dbDriver;
         this.user = user;
+        this.userKey = userKey;
     }
 
     @Override
@@ -29,7 +31,7 @@ public class UpdateDataBase implements Interaction {
                     prepareStatement("UPDATE users SET usercode=?, username=? WHERE usercode=?");
             st.setInt(1,user.getUserCode());
             st.setString(2,user.getUserName());
-            st.setInt(3,user.getUserCode());
+            st.setInt(3,userKey);
             st.executeUpdate();
             dbDriver.disconect();
         }
@@ -40,7 +42,7 @@ public class UpdateDataBase implements Interaction {
         }
     }
 
-    public static Interaction update(DataBaseDriver dbDriver, Users user) {
-        return instrumented(UpdateDataBase.class, dbDriver, user);
+    public static Interaction update(DataBaseDriver dbDriver, Users user, int userKey) {
+        return instrumented(UpdateDataBase.class, dbDriver, user, userKey);
     }
 }
