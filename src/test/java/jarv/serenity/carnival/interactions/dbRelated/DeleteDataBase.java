@@ -25,7 +25,7 @@ public class DeleteDataBase implements Interaction {
     public <T extends Actor> void performAs(T actor) {
         try
         {
-            PreparedStatement st = dbDriver.getConn().prepareStatement("DELETE FROM Table WHERE name = ?");
+            PreparedStatement st = dbDriver.getConn().prepareStatement("DELETE FROM users WHERE usercode = ?");
             st.setInt(1,user.getUserCode());
             st.executeUpdate();
             dbDriver.disconect();

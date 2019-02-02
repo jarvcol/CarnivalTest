@@ -9,3 +9,4 @@ Feature: Data base interaction test
     #Then he should see the new register data
     When he attempts to do a delete
     #Then he should not see any register on the data base
+    Then he should do something
