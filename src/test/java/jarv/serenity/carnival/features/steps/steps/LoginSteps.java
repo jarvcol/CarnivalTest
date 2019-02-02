@@ -31,7 +31,7 @@ public class LoginSteps {
         theActorInTheSpotlight().attemptsTo(DoesABadLogin.badLoginAttempt("jarv1111@hotmail.com","JJJJJJ"));
     }
 
-    @Then("^he must see that login was not successful")
+    @Then("^he must see that login was not successful$")
     public void he_should_see_that_login_was_not_succesful()  {
         theActorInTheSpotlight().should(
                 seeThat(LoginQuestions.IsLoginFailed(),is(true)),
