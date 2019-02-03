@@ -13,7 +13,7 @@ Feature to test it was implemented, still I am aware that I am missing a way to 
 Stackoverflow question to solve this: https://stackoverflow.com/questions/54495073/how-to-return-a-value-from-an-interaction
 
 4) API test. Completed.
-I tried to follow as many examples as possible but could not implemented in the way I intended to do it (using net.serenitybdd.screenplay.rest.interactions) there was always an error that was being thrown and I asked for help here: https://stackoverflow.com/questions/54472152/net-serenitybdd-core-exceptions-serenitymanagedexception-serenity-disable-rest
+I tried to follow as many examples as possible but could not implemented in the way I intended to do it (using net.serenitybdd.screenplay.rest.interactions) there was always an error that was being thrown and I asked for help here: https://stackoverflow.com/questions/54472152/net-serenitybdd-core-exceptions-serenitymanagedexception-serenity-disable-rest.
 Anyway, I endedup implementing this test the way I could do it using net.serenitybdd.rest.SerenityRest.
 Please note difference in file jarv.serenity.carnival.features.steps.steps.RecoverPasswordSteps between master and apiOriginalApproach
 
