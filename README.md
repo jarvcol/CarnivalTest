@@ -20,4 +20,9 @@ Please note difference in file jarv.serenity.carnival.features.steps.steps.Recov
 To run it it is just needed to have JAVA 1.8+ and maven installed. 
 PLease run: "mvn -Dwebdriver.driver=chrome verify" to run it in Chrome, if needed on Firefox simply change to "mvn -Dwebdriver.driver=firefox verify"
 
+BTW: There is an error being thrown when I run it over the mvn command, this error only affects the test results report, not the execution:
+Failed to load requirements: net/serenitybdd/screenplay/Ability
+java.lang.NoClassDefFoundError: net/serenitybdd/screenplay/Ability
+I have been trying to find a solution to fix it and it could be a dependency issue but could not find the correct versions (Have tried some from 2.0.0 to latest one)
+
 Thanks!
