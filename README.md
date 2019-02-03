@@ -14,9 +14,7 @@ Stackoverflow question to solve this: https://stackoverflow.com/questions/544950
 
 4) API test. Completed.
 I tried to follow as many examples as possible but could not implemented in the way I intended to do it (using net.serenitybdd.screenplay.rest.interactions) there was always an error that was being thrown and I asked for help here: https://stackoverflow.com/questions/54472152/net-serenitybdd-core-exceptions-serenitymanagedexception-serenity-disable-rest
-
 Anyway, I endedup implementing this test the way I could do it using net.serenitybdd.rest.SerenityRest.
-
 Please note difference in file jarv.serenity.carnival.features.steps.steps.RecoverPasswordSteps between master and apiOriginalApproach
 
 To run it it is just needed to have JAVA 1.8+ and maven installed. 
